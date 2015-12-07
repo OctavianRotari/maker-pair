@@ -8,6 +8,10 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'fd3a805af11dfef78bf83b041231d9727ce0ade6e29b624253c405147ae8087d3295ac94b58b6146eb35e5ebdae0824cbca2aaf81da75995616566868804512a'
 
+
+  config.omniauth :github, Rails.application.secrets.github_client_id, Rails.application.secrets.github_client_secret, callback_url: "http://localhost:3000/"
+
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
