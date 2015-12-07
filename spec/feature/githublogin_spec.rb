@@ -12,12 +12,4 @@ feature 'github_login' do
       expect(page).to have_content('Sign in with Github')
     end
   end
-
-  context 'user logs in' do
-    scenario 'using a github profile' do
-      visit '/'
-      click_link 'Sign in with Github'
-      expect(page).to have_content('Successfuly logged in')
-    end
-  end
 end
