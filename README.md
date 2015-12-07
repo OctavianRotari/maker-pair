@@ -1,22 +1,22 @@
 User Stories
 ---
 
-As a prospective student,
-So I can be able to find a pair,
-I want to be able to log into MakerPair.
+1)  As a prospective student,
+    So I can be able to find a pair,
+    I want to be able to log into MakerPair.
 
-As a prospective student,
-So I make sure I am ready for pairing,
-I want to be able to only log in through github.
+2)  As a prospective student,
+    So I make sure I am ready for pairing,
+    I want to be able to only log in through github.
 
-As a prospective student,
-So I can be able to correctly choose a pair
-I want to be able to set myself as a mentee.
+3)  As a prospective student,
+    So I can be able to correctly choose a pair
+    I want to be able to set myself as a mentee.
 
-As a prospective student,
-So I can be able to correctly choose a pair,
-I want to be able to fill out a profile about myself.
+4)  As a prospective student,
+    So I can be able to correctly choose a pair,
+    I want to be able to fill out a profile about myself.
 
-As a prospective student,
-So I can be able to correctly choose a pair,
-I want to be able to see a list of mentors.
+5)  As a prospective student,
+    So I can be able to correctly choose a pair,
+    I want to be able to see a list of mentors.
