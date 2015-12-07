@@ -5,7 +5,7 @@
 Application to enable pair programming by matching mentees and mentors
 
 ###*Installation*
-
+ Ruby Version 2.2.3
 
 ###**User Stories**
 
