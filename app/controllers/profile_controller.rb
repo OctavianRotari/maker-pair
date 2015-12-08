@@ -1,9 +1,8 @@
 class ProfileController < ApplicationController
    def index
-   @profile = Profile.new
-   # raise "hello stranger"
+
    @profiles = Profile.all
- end
+   end
 
  def new
    @profile = Profile.new
@@ -11,9 +10,9 @@ class ProfileController < ApplicationController
 
  def create
    @profile = Profile.new(profile_params)
-   @profile.user_id = current_user.id
+  #  @profile.user_id = current_user.id
    if @profile.save
-     redirect_to 'profile_path'
+     redirect_to '/profile'
    else
      render 'new'
    end
