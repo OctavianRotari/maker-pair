@@ -1,0 +1,30 @@
+<% if @profile.errors.any? %>
+  <section id="errors" >
+    <h2> <%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved: </h2>
+    <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </section>
+
+<% end %>
+
+console.log("test")
+
+<%= simple_form_for @profile do |f| %>
+    <%= f.label :status %>
+    <%= f.select(:status, ['Mentee', 'Mentor'], {}, { :class => 'form_class' }) %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+    <%= f.label :language %>
+    <%= f.text_field :language %>
+    <%= f.label :expertise %>
+    <%= f.select(:expertise, ['Beginner', 'Intermediate', 'Advanced'], {}, { :class => 'form_class' }) %>
+    <%= f.label :occupation %>
+    <%= f.text_field :occupation %>
+
+      <%= f.submit %>
+<% end %>
