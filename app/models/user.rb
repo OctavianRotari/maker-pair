@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
   has_one :profile
 
   def self.from_omniauth(auth)
+    byebug
     where(provider: auth.provide, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
+      user.name = auth.info.name
+      user.nickname = auth.info.nickname
       user.password = Devise.friendly_token[0,20]
-      # user.name = auth.info.name    assuming the user model has a name
-      # user.image = auth.info.image  assuming the user model has an image
     end
   end
 end
