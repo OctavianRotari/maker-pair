@@ -9,7 +9,7 @@ Devise.setup do |config|
   # config.secret_key = 'fd3a805af11dfef78bf83b041231d9727ce0ade6e29b624253c405147ae8087d3295ac94b58b6146eb35e5ebdae0824cbca2aaf81da75995616566868804512a'
 
 
-  config.omniauth :github, Rails.application.secrets.github_client_id, Rails.application.secrets.github_client_secret, :scope => 'email'  # callback_url: "CALLBACK_URL"
+  config.omniauth :github, Rails.application.secrets.github_client_id, Rails.application.secrets.github_client_secret # callback_url: "CALLBACK_URL"
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -46,12 +46,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  # config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  # config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -124,10 +124,10 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  # config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
-  # config.confirmation_keys = [:email]
+  config.confirmation_keys = [:nickname]
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
