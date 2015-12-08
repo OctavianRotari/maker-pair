@@ -1,5 +1,6 @@
 class ProfileController < ApplicationController
    def index
+   @profile = Profile.new
    # raise "hello stranger"
    @profiles = Profile.all
  end
@@ -58,10 +59,5 @@ class ProfileController < ApplicationController
 
    redirect_to '/profile'
  end
-
-
-
-
-
 
 end

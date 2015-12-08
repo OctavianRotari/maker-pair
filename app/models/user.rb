@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_one :profile
 
   def self.from_omniauth(auth)
-    byebug
     where(provider: auth.provide, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.name = auth.info.name

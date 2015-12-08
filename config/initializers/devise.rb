@@ -9,8 +9,7 @@ Devise.setup do |config|
   # config.secret_key = 'fd3a805af11dfef78bf83b041231d9727ce0ade6e29b624253c405147ae8087d3295ac94b58b6146eb35e5ebdae0824cbca2aaf81da75995616566868804512a'
 
 
-  config.omniauth :github, Rails.application.secrets.github_client_id, Rails.application.secrets.github_client_secret # callback_url: "CALLBACK_URL"
-
+  config.omniauth :github, Rails.application.secrets.github_client_id, Rails.application.secrets.github_client_secret, :scope => 'email'  # callback_url: "CALLBACK_URL"
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
