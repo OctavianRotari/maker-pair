@@ -1,16 +1,1 @@
-<%= simple_form_for @profile do |f| %>
-   <%= f.label :status %>
-   <%= f.select(:status, ['Mentee', 'Mentor'], {}, { :class => 'form_class' }) %>
-   <%= f.label :name %>
-   <%= f.text_field :name %>
-   <%= f.label :surname %>
-   <%= f.text_field :surname %>
-   <%= f.label :language %>
-   <%= f.text_field :language %>
-   <%= f.label :expertise %>
-   <%= f.select(:expertise, ['Beginner', 'Intermediate', 'Advanced'], {}, { :class => 'form_class' }) %>
-   <%= f.label :occupation %>
-   <%= f.text_field :occupation %>
 
-     <%= f.submit %>
-<% end %>

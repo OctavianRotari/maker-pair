@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
   has_one :profile
 
   def self.from_omniauth(auth)
-    where(provider: auth.provide, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
+    !where(provider: auth.provide, uid: auth.uid).first_or_create do |user|
       user.name = auth.info.name
       user.nickname = auth.info.nickname
       user.password = Devise.friendly_token[0,20]
