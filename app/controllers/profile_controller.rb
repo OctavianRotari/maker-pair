@@ -58,5 +58,4 @@ class ProfileController < ApplicationController
 
    redirect_to '/profile'
  end
-
 end
