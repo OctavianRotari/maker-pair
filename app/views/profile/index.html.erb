@@ -1,18 +1,23 @@
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
 
+<body>
+  <div class="container">
+  <div class="jumbotron">
 
-<%= simple_form_for @profile do |f| %>
-   <%= f.label :status %>
-   <%= f.select(:status, ['Mentee', 'Mentor'], {}, { :class => 'form_class' }) %>
-   <%= f.label :name %>
-   <%= f.text_field :name %>
-   <%= f.label :surname %>
-   <%= f.text_field :surname %>
-   <%= f.label :language %>
-   <%= f.text_field :language %>
-   <%= f.label :expertise %>
-   <%= f.select(:expertise, ['Beginner', 'Intermediate', 'Advanced'], {}, { :class => 'form_class' }) %>
-   <%= f.label :occupation %>
-   <%= f.text_field :occupation %>
+      <a href="/profile/new">Add your profile</a> <br> <br>
+      <% if @profiles.any? %>
+        <% @profiles.each do |profile| %>
+            <%= profile.name %> -
+            <%= profile.surname %> - 
+            <%= profile.location %> <br />
+        <% end %>
+      <% else %>
+        No stored profiles
+      <% end %>
 
-     <%= f.submit %>
-<% end %>
+  </div>
+</div>
+
+</body>

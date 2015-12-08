@@ -1,21 +1,41 @@
-test test
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
 
-<% if @profile.errors.any? %>
- <section id="errors" >
-   <h2> <%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved: </h2>
-   <ul>
-     <% @profile.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-     <% end %>
-   </ul>
- </section>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <% if @profile.errors.any? %>
+       <section id="errors" >
+         <h2> <%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved: </h2>
+         <ul>
+           <% @profile.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+           <% end %>
+         </ul>
+       </section>
 
-<% end %>
+      <% end %>
 
-console.log("test")
 
-<form action="/profile/create" method="post" >
-<input type="text" name="status">
+      <%= simple_form_for(@profile, {url: "/profile"}) do |f| %>
+         <%= f.label :status %>
+         <%= f.select(:status, ['Mentee', 'Mentor'], {}, { :class => 'form_class' }) %> <br />
+         <%= f.label :name %>
+         <%= f.text_field :name %> <br />
+         <%= f.label :surname %>
+         <%= f.text_field :surname %> <br />
+         <%= f.label :language %>
+         <%= f.text_field :language %> <br />
+         <%= f.label :expertise %>
+         <%= f.select(:expertise, ['Beginner', 'Intermediate', 'Advanced'], {}, { :class => 'form_class' }) %> <br />
+         <%= f.label :occupation %>
+         <%= f.text_field :occupation %> <br />
+         <%= f.label :location %>
+         <%= f.text_field :location %> <br />
 
-</input>
-</form>
+           <%= f.submit %>
+      <% end %>
+  </div>
+</div>
+</body>
