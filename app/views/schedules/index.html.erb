@@ -1,14 +1,10 @@
-hello edward
+<%= "Hi #{@profile.name}!" %> <br />
 
-<%= @profile.name %> <br />
-
-<% if @all_profiles.any? %> -->
+<% if @all_profiles.any? %>
          <% @all_profiles.each do |current_profile| %>
              <% if current_profile.id != @profile.id && current_profile.status == 'Mentor' %>
-             <%= p current_profile.availability %>
              <% current_profile.availability.shift(1) %>
                  <% @mentor_availability = current_profile.availability %>
-                 <%= p @mentor_availability %>
                      <% @student_availability.each do |check| %>
                        <% if @mentor_availability.include?(check) %>
                          <% @result << current_profile %>
@@ -18,4 +14,85 @@ hello edward
              <% end %>
          <% end %>
 <br>
-  <%= @result %>
+
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>Full Name</span></th>
+                                <th><span>Languages</span></th>
+                                <th><span>Location</span></th>
+                                <th><span>GitHub Account</span></th>
+                                <th><span></span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                              <% if @result.any? %>
+                              <% @result.each do |mentor| %>
+                                <tr>
+                                    <td>
+                                        <img src="<%=mentor.image%>">
+                                        <a href="#" class="user-link">
+                                          <%= mentor.name %>
+                                          <%= mentor.surname %>
+                                        </a>
+                                        <span class="user-subhead">
+                                          <%= mentor.status %>
+                                        </span>
+                                    </td>
+                                    <td>
+                                      <span class="label label-default">
+                                        <%= mentor.language %>
+                                      </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">
+                                          <%= mentor.location %>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="<%=mentor.github%>"><%="#{mentor.name}'s GitHub Profile"%></a>
+                                    </td>
+                                    <td>
+                                      <input type="checkbox">
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% end %>
+                                <% else %>
+                                No stored profiles
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
