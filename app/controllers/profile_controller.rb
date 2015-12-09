@@ -4,6 +4,7 @@ class ProfileController < ApplicationController
     # before_create :stringify_avail
 
   def index
+
    @current_user = current_user if current_user != nil
    @profile = Profile.find(params[:id])
    @profiles = Profile.all
@@ -13,22 +14,8 @@ class ProfileController < ApplicationController
   end
 
 
- def new
-   @profile = Profile.new
- end
 
- def create
-   @profile = Profile.new(profile_params)
-   if @profile.save
-     redirect_to '/profile'
-   else
-     render 'new'
-   end
- end
 
-  def stringify_avail
-    self.availability.join(', ')
-  end
 
  def profile_params
    params.require(:profile).permit(:status, :name, :surname, :language, :expertise, :occupation, :location, :availability => [])
@@ -70,8 +57,23 @@ class ProfileController < ApplicationController
    redirect_to '/profile'
  end
 
- # def result
- #   p "got to results route"
- #
+
+  def new
+    @profile = Profile.new
+  end
+
+  def create
+    @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
+    @profile.image = current_user.image
+    @profile.github = current_user.url
+    @profile.githubname = current_user.name
+    byebug
+    if @profile.save
+      redirect_to '/profile'
+    else
+      render 'new'
+    end
+  end
 
 end
