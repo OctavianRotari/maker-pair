@@ -12,7 +12,8 @@
         <% @profiles.each do |profile| %>
             <%= profile.name %> -
             <%= profile.surname %> -
-            <%= profile.location %> <br />
+            <%= profile.location %>
+            <%= profile.schedule %><br />
         <% end %>
       <% else %>
         No stored profiles
