@@ -1,4 +1,13 @@
-<button type="submit" class = "btn btn-warning btn-lg"><a href="/profile/new" >Add your profile</a></button><br><br>
+<tr>
+<td>
+<img src='' alt=''>
+<a href="#" class'user-link'>Full name</a>
+<span class="user-subhead">member</span>
+</td>
+<td></td>
+<td class='label label-default'>pending</span>
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
@@ -9,39 +18,26 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
-                                <th><span>Full Name</span></th>
-                                <th><span>User Name</span></th>
+                                <th><span>User</span></th>
+                                <th><span>Created</span></th>
                                 <th class="text-center"><span>Status</span></th>
-                                <th><span>Languages</span></th>
-                                <th><span>Location</span></th>
-                                <th><span>GitHub Account</span></th>
+                                <th><span>Email</span></th>
                                 <th>&nbsp;</th>
                                 </tr>
                             </thead>
-                            <tbody >
-                              <% if @profiles.any? %>
-                              <% @profiles.each do |profile| %>
-                                <tr>
+                            <tbody>
+                                    <tr>
                                     <td>
-                                        <img src="<%=profile.image%>">
-                                        <a href="#" class="user-link">
-                                          <%= profile.name %>
-                                          <%= profile.surname %>
-                                        </a>
-                                        <span class="user-subhead">
-                                          <%= profile.status %>
-                                        </span>
+                                        <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <a href="#" class="user-link">Full name 1</a>
+                                        <span class="user-subhead">Member</span>
                                     </td>
-                                    <td>
-                                      <%= profile.language %>
-                                    </td>
+                                    <td>2013/08/12</td>
                                     <td class="text-center">
-                                        <span class="label label-default">
-                                          <%= profile.location %>
-                                        </span>
+                                        <span class="label label-default">pending</span>
                                     </td>
                                     <td>
-                                        <a href="<%=profile.github%>"><%="#{profile.name}'s GitHub Profile'"%></a>
+                                        <a href="#">marlon@brando.com</a>
                                     </td>
                                     <td style="width: 20%;">
                                         <a href="#" class="table-link">
@@ -64,15 +60,3 @@
                                         </a>
                                     </td>
                                 </tr>
-                                <% end %>
-                                <% else %>
-                                No stored profiles
-                                <% end %>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
