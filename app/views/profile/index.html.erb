@@ -11,11 +11,10 @@
                 <div class="main-box-body clearfix">
                     <div class="table-responsive">
                         <table class="table user-list">
+                          <h1>Mentors</h1>
                             <thead>
                                 <tr>
                                 <th><span>Full Name</span></th>
-                                <th><span>Availability</span></th>
-
                                 <th><span>Languages</span></th>
                                 <th><span>Location</span></th>
                                 <th><span>GitHub Account</span></th>
@@ -24,8 +23,8 @@
                                 </tr>
                             </thead>
                             <tbody >
-                              <% if @profiles.any? %>
-                              <% @profiles.each do |profile| %>
+                              <% if @mentor.any? %>
+                              <% @mentor.each do |profile| %>
                                 <tr>
                                     <td>
                                         <img src="<%=profile.image%>">
@@ -33,14 +32,11 @@
                                           <%= profile.name %>
                                           <%= profile.surname %>
                                         </a>
+                                        <%= link_to "Your Profile", profile_path(profile) %>
                                         <span class="user-subhead">
                                           <%= profile.status %>
                                         </span>
                                     </td>
-                                    <td>
-                                      <span class="label label-default">
-                                        <%= profile.availability %>
-                                      </span>
                                     <td>
                                       <%= profile.language %>
                                     </td>
@@ -83,6 +79,77 @@
                                 No stored profiles
                                 <% end %>
                             </tbody>
+                          </table>
+                          <table class="table user-list">
+                            <h1>Mentees</h1>
+                            <thead>
+                                <tr>
+                                <th><span>Full Name</span></th>
+                                <th><span>Languages</span></th>
+                                <th><span>Location</span></th>
+                                <th><span>GitHub Account</span></th>
+                                <th><span>View my mentors</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                              <% if @mentee.any? %>
+                              <% @mentee.each do |profile| %>
+                                <tr>
+                                    <td>
+                                        <img src="<%=profile.image%>">
+                                        <a href="#" class="user-link">
+                                          <%= profile.name %>
+                                          <%= profile.surname %>
+                                        </a>
+                                        <%= link_to "Your Profile", profile_path(profile) %>
+                                        <span class="user-subhead">
+                                          <%= profile.status %>
+                                        </span>
+                                    </td>
+                                    <td>
+                                      <%= profile.language %>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">
+                                          <%= profile.location %>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="<%=profile.github%>"><%="#{profile.name}'s GitHub Profile"%></a>
+                                    </td>
+                                    <td>
+                                      <span class="label label-default">
+                                        <%= link_to "View my mentors", profile_schedules_path(profile) %>
+                                      </span>
+                                    <td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% end %>
+                                <% else %>
+                                No stored profiles
+                                <% end %>
+                            </tbody>
+
                         </table>
                     </div>
                 </div>

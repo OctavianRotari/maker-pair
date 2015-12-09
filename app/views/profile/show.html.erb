@@ -1,0 +1,19 @@
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<button type="submit" class = "btn btn-warning btn-lg"><a href="/profile/new" >Add your profile</a></button><br><br>
+<hr>
+<div class="container bootstrap snippet">
+<img src="<%=@profile.image%>">
+<%= @profile.name %>
+<%= @profile.surname %>
+<%= @profile.status %>
+<%= @profile.language %>
+<%= @profile.expertise %>
+<%= @profile.occupation %>
+<%= @profile.location %>
+
+
+
+</div>

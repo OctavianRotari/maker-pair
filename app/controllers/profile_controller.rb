@@ -11,6 +11,11 @@ class ProfileController < ApplicationController
    @all_profiles = Profile.all
   #  @student_availability = @profile.availability.shift(1)
    @result = []
+   @mentee = []
+   @profiles.each{ |profile| @mentee.push(profile) if profile.status == 'Mentee' }
+   @mentor = []
+   @profiles.each{ |profile| @mentor.push(profile) if profile.status == 'Mentor' }
+   byebug
   end
 
 
