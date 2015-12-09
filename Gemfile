@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'simple_form'
-
+gem 'bower-rails'
 gem 'omniauth-github'
 gem "devise"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
