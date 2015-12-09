@@ -1,6 +1,10 @@
 class ProfileController < ApplicationController
-   def index
+    before_action :authenticate_user!, :except => [:index]
 
+
+
+  def index
+    @current_user = current_user if current_user != nil
    @profiles = Profile.all
    end
 

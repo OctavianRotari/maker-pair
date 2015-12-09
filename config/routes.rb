@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   devise_for :users, :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks'}
 
-  root to: "welcome#index"
+  root to: "profile#index"
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :welcome
   resources :profile
   # Example resource route with options:
   #   resources :products do
