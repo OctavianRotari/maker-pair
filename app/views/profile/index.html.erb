@@ -16,25 +16,13 @@
             <%= profile.location %>
             <%= profile.schedule %><br />
             <%= profile.availability %>
+            <%= link_to "View my mentors", profile_schedules_path(profile) %> <br />
         <% end %>
       <% else %>
         No stored profiles
       <% end %>
 
-      <% if @all_profiles.any? %>
-         <% @all_profiles.each do |current_profile| %>
-             <% if current_profile.id != @profile.id && current_profile.status == 'Mentor' %>
-                 <% @mentor_availability = current_profile.availability.shift(1) %>
-                     <% @student_availability.each do |check| %>
-                       <% if @mentor_availability.include?(check) %>
-                         <% @result << current_profile %>
-                       <% end %>
-                     <% end %>
-                 <% end %>
-             <% end %>
-         <% end %>
 
-      <%= @result %>
 
   </div>
 </div>

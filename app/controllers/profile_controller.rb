@@ -6,10 +6,10 @@ class ProfileController < ApplicationController
   def index
 
    @current_user = current_user if current_user != nil
-   @profile = Profile.find(params[:id])
+  #  @profile = Profile.find(params[:id])
    @profiles = Profile.all
    @all_profiles = Profile.all
-   @student_availability = @profile.availability.shift(1)
+  #  @student_availability = @profile.availability.shift(1)
    @result = []
   end
 
@@ -68,7 +68,6 @@ class ProfileController < ApplicationController
     @profile.image = current_user.image
     @profile.github = current_user.url
     @profile.githubname = current_user.name
-    byebug
     if @profile.save
       redirect_to '/profile'
     else

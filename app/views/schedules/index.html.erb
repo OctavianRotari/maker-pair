@@ -1,0 +1,21 @@
+hello edward
+
+<%= @profile.name %> <br />
+
+<% if @all_profiles.any? %> -->
+         <% @all_profiles.each do |current_profile| %>
+             <% if current_profile.id != @profile.id && current_profile.status == 'Mentor' %>
+             <%= p current_profile.availability %>
+             <% current_profile.availability.shift(1) %>
+                 <% @mentor_availability = current_profile.availability %>
+                 <%= p @mentor_availability %>
+                     <% @student_availability.each do |check| %>
+                       <% if @mentor_availability.include?(check) %>
+                         <% @result << current_profile %>
+                       <% end %>
+                     <% end %>
+                 <% end %>
+             <% end %>
+         <% end %>
+<br>
+  <%= @result %>
