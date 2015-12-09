@@ -13,7 +13,19 @@
 <%= @profile.expertise %>
 <%= @profile.occupation %>
 <%= @profile.location %>
-
-
-
 </div>
+
+<%= link_to "Review this maker", new_profile_review_path(@profile.id)%>
+<h3>Reviews for <%= @profile.name %></h3>
+
+<% if @profile.reviews.any? %>
+  <ul>
+    <% @profile.reviews.each do |review| %>
+      <li>
+        <%= review.thoughts %>, <strong><%= review.rating %></strong>/5
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No reviews.</p>
+<% end %>
