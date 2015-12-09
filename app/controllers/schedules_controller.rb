@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
 
   def new
-    @profile = Profile.find(params[:restaurant_id])
+    @profile = Profile.find(params[:profile_id])
     @schedule = Schedule.new
   end
 
