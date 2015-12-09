@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   has_one :schedule
-
+  has_many :reviews, dependent: :destroy
 
   serialize :availability, Array
 
