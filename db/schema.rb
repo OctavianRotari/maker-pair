@@ -24,9 +24,10 @@ ActiveRecord::Schema.define(version: 20151209141819) do
     t.string   "expertise"
     t.string   "occupation"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
+    t.text     "availability"
     t.string   "image"
     t.string   "github"
     t.string   "githubname"
