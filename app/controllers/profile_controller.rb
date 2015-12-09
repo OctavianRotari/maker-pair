@@ -16,6 +16,7 @@ class ProfileController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
     @profile.image = current_user.image
+    @profile.github = current_user.url
     byebug
     if @profile.save
       redirect_to '/profile'
