@@ -1,12 +1,17 @@
 class ProfileController < ApplicationController
     before_action :authenticate_user!, :except => [:index]
 
-
+    # before_create :stringify_avail
 
   def index
-    @current_user = current_user if current_user != nil
+   @current_user = current_user if current_user != nil
+   @profile = Profile.find(params[:id])
    @profiles = Profile.all
-   end
+   @all_profiles = Profile.all
+   @student_availability = @profile.availability.shift(1)
+   @result = []
+  end
+
 
  def new
    @profile = Profile.new
@@ -14,7 +19,6 @@ class ProfileController < ApplicationController
 
  def create
    @profile = Profile.new(profile_params)
-  #  @profile.user_id = current_user.id
    if @profile.save
      redirect_to '/profile'
    else
@@ -22,9 +26,12 @@ class ProfileController < ApplicationController
    end
  end
 
+  def stringify_avail
+    self.availability.join(', ')
+  end
 
  def profile_params
-   params.require(:profile).permit(:status, :name, :surname, :language, :expertise, :occupation, :location)
+   params.require(:profile).permit(:status, :name, :surname, :language, :expertise, :occupation, :location, :availability => [])
  end
 
  def show
@@ -62,4 +69,9 @@ class ProfileController < ApplicationController
 
    redirect_to '/profile'
  end
+
+ # def result
+ #   p "got to results route"
+ #
+
 end

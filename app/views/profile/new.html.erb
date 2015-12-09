@@ -33,8 +33,10 @@
          <%= f.text_field :occupation %> <br />
          <%= f.label :location %>
          <%= f.text_field :location %> <br />
-
-           <%= f.submit %>
+         <%= f.select :availability, Profile::AVAILABILITY, {},
+                                   { :multiple => true, :size => 7 }
+                                  %>
+               <%= f.submit %>
       <% end %>
   </div>
 </div>

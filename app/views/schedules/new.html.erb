@@ -5,58 +5,30 @@
 
 <body>
 
-No profiles yet
-
-<table>
-<tr>
-    <th></th>
-    <th>Mornings</th>
-    <th>Afternoons</th>
-    <th>Evenings</th>
-</tr>
-<tr>
-    <td>Monday</td>
-    <td><input id="mon_morn" type="radio" name="row-1"></td>
-    <td><input id="mon_aftrn" type="radio" name="row-2"></td>
-    <td><input id="mon_eve" type="radio" name="row-3"></td>
-</tr>
-<tr>
-    <td>Tuesday</td>
-    <td><input id="tue_morn" type="radio" name="row-4" value="1"></td>
-    <td><input id="tue_aftrn" type="radio" name="row-5" value="2"></td>
-    <td><input id="tue_eve" type="radio" name="row-6" value="3"></td>
-</tr>
-<tr>
-    <td>Wednesday</td>
-    <td><input id="wed_morn" type="radio" name="row-4" value="1"></td>
-    <td><input id="wed_aftrn" type="radio" name="row-5" value="2"></td>
-    <td><input id="wed_eve" type="radio" name="row-6" value="3"></td>
-</tr>
-<tr>
-    <td>Thursday</td>
-    <td><input id="thur_morn" type="radio" name="row-4" value="1"></td>
-    <td><input id="thur_aftrn" type="radio" name="row-5" value="2"></td>
-    <td><input id="thur_eve" type="radio" name="row-6" value="3"></td>
-</tr>
-<tr>
-    <td>Friday</td>
-    <td><input id="fri_morn" type="radio" name="row-4" value="1"></td>
-    <td><input id="fri_aftrn" type="radio" name="row-5" value="2"></td>
-    <td><input id="fri_eve" type="radio" name="row-6" value="3"></td>
-</tr>
-<tr>
-    <td>Saturday</td>
-    <td><input id="sat_morn" type="radio" name="row-4" value="1"></td>
-    <td><input id="sat_aftrn" type="radio" name="row-5" value="2"></td>
-    <td><input id="sat_eve" type="radio" name="row-6" value="3"></td>
-</tr>
-<tr>
-    <td>Sunday</td>
-    <td><input id="sun_morn" type="radio" name="row-4" value="1"></td>
-    <td><input id="sun_aftrn" type="radio" name="row-5" value="2"></td>
-    <td><input id="sun_eve" type="radio" name="row-6" value="3"></td>
-</tr>
-</table>
+  <form action="/profile/:profile_id/schedules/new">
+    <label>
+      <input type="checkbox" value="mon"> Monday
+    </label>
+    <label>
+      <input type="checkbox" value="tue"> Tuesday
+    </label>
+    <label>
+      <input type="checkbox" value="wed"> Wednesday
+    </label>
+    <label>
+      <input type="checkbox" value="thu"> Thursday
+    </label>
+    <label>
+      <input type="checkbox" value="fri"> Friday
+    </label>
+    <label>
+      <input type="checkbox" value="sat"> Saturday
+    </label>
+    <label>
+      <input type="checkbox" value="sun"> Sunday
+    </label>
+    <button type="submit">submit</button>
+  </form>
 
 </body>
 

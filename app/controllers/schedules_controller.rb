@@ -1,11 +1,13 @@
 class SchedulesController < ApplicationController
 
   def new
+
     @profile = Profile.find(params[:profile_id])
     @schedule = Schedule.new
   end
 
   def create
+
     @profile = Profile.find(params[:profile_id])
     @profile.schedules.create(schedule_params)
   end
