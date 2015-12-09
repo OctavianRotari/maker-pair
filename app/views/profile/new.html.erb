@@ -4,7 +4,6 @@
 
 <body>
   <div class="container">
-    <div class="jumbotron">
       <% if @profile.errors.any? %>
        <section id="errors" >
          <h2> <%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved: </h2>
@@ -16,8 +15,12 @@
        </section>
 
       <% end %>
+  </div>
 
-
+<div class="smart-green">
+  <h1>Register for Maker-Pair
+    <span>Please fill all fiels below: </span>
+  </h1>
       <%= simple_form_for(@profile, {url: "/profile"}) do |f| %>
          <%= f.label :status %>
          <%= f.select(:status, ['Mentee', 'Mentor'], {}, { :class => 'form_class' }) %> <br />
@@ -38,6 +41,5 @@
                                   %>
                <%= f.submit %>
       <% end %>
-  </div>
 </div>
 </body>
