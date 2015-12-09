@@ -4,13 +4,12 @@ class ProfileController < ApplicationController
     # before_create :stringify_avail
 
   def index
-
    @current_user = current_user if current_user != nil
-  #  @profile = Profile.find(params[:id])
    @profiles = Profile.all
-   @all_profiles = Profile.all
-  #  @student_availability = @profile.availability.shift(1)
-   @result = []
+   @mentee = []
+   @profiles.each{ |profile| @mentee.push(profile) if profile.status == 'Mentee' }
+   @mentor = []
+   @profiles.each{ |profile| @mentor.push(profile) if profile.status == 'Mentor' }
   end
 
 
