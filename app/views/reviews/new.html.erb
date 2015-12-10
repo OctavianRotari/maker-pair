@@ -1,7 +1,24 @@
-<%= form_for [@profile, @review] do |f| %>
-  <%= f.label :thoughts %>
-  <%= f.text_area :thoughts %>
-  <%= f.label :rating %>
-  <%= f.select :rating, (1..5) %>
-  <%= f.submit 'Leave Review' %>
-<% end %>
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="smart-green">
+      <h1>Leave Feedback for Mentor!
+        <span>Please fill in below: </span>
+      </h1>
+
+    <%= form_for [@profile, @review] do |f| %>
+      <%= f.label :thoughts %>
+      <%= f.text_area :thoughts %>
+      <%= f.label :rating %>
+      <%= f.select :rating, (1..5) %>
+      <%= f.submit 'Leave Review' %>
+    <% end %>
+  </div>
+
+  <div class="btn pull-left">
+    <button type="submit" class="btn btn-warning btn-md"><a href="/profile/">Back to Profile Page</a>
+    </button>
+  </div>
+</body>

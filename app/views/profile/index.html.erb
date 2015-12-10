@@ -1,7 +1,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
-  
+
 
 <div class="container bootstrap snippet">
     <div class="row">
@@ -39,7 +39,7 @@
                                     <td>
                                       <%= profile.language %>
                                     </td>
-                                    <td class="text-center">
+                                    <td>
                                         <span class="label label-default">
                                           <%= profile.location %>
                                         </span>
@@ -48,9 +48,6 @@
                                         <a href="<%=profile.github%>"><%="#{profile.name}'s GitHub Profile"%></a>
                                     </td>
                                     <td>
-                                      <span class="label label-default">
-                                        <%= profile.language %>
-                                      </span>
                                         <%= link_to "View my mentors", profile_schedules_path(profile) %>
                                       </span>
                                     <td>

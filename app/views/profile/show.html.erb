@@ -1,22 +1,69 @@
 <head>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+<style>
+.jumbotron{
+    background-color:#a6a6a6;
+
+}
+/* Adds borders for tabs */
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+.nav-tabs {
+    margin-bottom: 0;
+}
+.page-header {
+  font-size: 40px;
+  font-family: 'Poiret One', cursive, bold;
+  color: #9acd32;
+}
+</style>
+<div class="jumbotron">
+<h2 class="page-header">Maker-Pair</h2>
 </head>
 
-<button type="submit" class = "btn btn-warning btn-lg"><a href="/profile/new" >Add your profile</a></button><br><br>
 <hr>
-<div class="container bootstrap snippet">
+<div class="container">
 <img src="<%=@profile.image%>">
+<br>
+<br>
+<p>Full Name:</p>
+<div class="well well-sm">
 <%= @profile.name %>
 <%= @profile.surname %>
+</div>
+<p>Status:</p>
+<div class="well well-sm">
 <%= @profile.status %>
+</div>
+<p>Programming Language:</p>
+<div class="well well-sm">
 <%= @profile.language %>
+</div>
+<p>Level of Expertise:</p>
+<div class="well well-sm">
 <%= @profile.expertise %>
+</div>
+<p>Occupation:</p>
+<div class="well well-sm">
 <%= @profile.occupation %>
+</div>
+<p>Location:</p>
+<div class="well well-sm">
 <%= @profile.location %>
 </div>
+</div>
 
+<br>
+<div class"btn">
 <%= link_to "Review this maker", new_profile_review_path(@profile.id)%>
-<h3>Reviews for <%= @profile.name %></h3>
+</div>
+<br>
+<h3 class="reviews">Reviews for <%= @profile.name %></h3>
 
 <% if @profile.reviews.any? %>
   <ul>
@@ -29,3 +76,4 @@
 <% else %>
   <p>No reviews.</p>
 <% end %>
+</div>
