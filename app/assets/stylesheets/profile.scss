@@ -3,6 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body{
     background:#eee;
+    .jumbotron{
+        background-color:#a6a6a6;
+
+    }
+    .page-header {
+      font-size: 40px;
+      font-family: 'Poiret One', cursive, bold;
+      color: #9acd32;
+    }
 }
 .main-box.no-header {
     padding-top: 20px;

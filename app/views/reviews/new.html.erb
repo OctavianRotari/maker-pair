@@ -18,7 +18,8 @@
   </div>
 
   <div class="btn pull-left">
-    <button type="submit" class="btn btn-warning btn-md"><a href="/profile/">Back to Profile Page</a>
-    </button>
+    <%= button_to "Back to Profile Page", profile_path(@profile), method: :get, class: "btn btn-warning btn-md" %>
+    <!-- <button type="submit" class="btn btn-warning btn-md"><a href="/profile/<%=@profile.id%>">Back to Profile Page</a>
+    </button> -->
   </div>
 </body>
