@@ -1,8 +1,3 @@
-<head>
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-</head>
-
-
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-lg-12">
@@ -10,7 +5,7 @@
                 <div class="main-box-body clearfix">
                     <div class="table-responsive">
                         <table class="table user-list">
-                          <h1>Mentors</h1>
+                          <h2>Mentors</h2>
                             <thead>
                                 <tr>
                                 <th><span>Full Name</span></th>
@@ -48,7 +43,7 @@
                                         <a href="<%=profile.github%>"><%="#{profile.name}'s GitHub Profile"%></a>
                                     </td>
                                     <td>
-                                        <%= link_to "View my mentors", profile_schedules_path(profile) %>
+                                        <%= link_to "View My Mentors", profile_schedules_path(profile) %>
                                       </span>
                                     <td>
                                     <td style="width: 20%;">
@@ -79,7 +74,7 @@
                             </tbody>
                           </table>
                           <table class="table user-list">
-                            <h1>Mentees</h1>
+                            <h2>Mentees</h2>
                             <thead>
                                 <tr>
                                 <th><span>Full Name</span></th>
@@ -117,8 +112,8 @@
                                         <a href="<%=profile.github%>"><%="#{profile.name}'s GitHub Profile"%></a>
                                     </td>
                                     <td>
-                                      <span class="label label-default">
-                                        <%= link_to "view matches", profile_schedules_path(profile) %>
+                                      <span>
+                                        <%= link_to "View My Matches", profile_schedules_path(profile) %>
                                       </span>
                                     <td>
                                     <td style="width: 20%;">
