@@ -1,3 +1,7 @@
+<div class="btn btn-success">
+<%= link_to "Go to main page", profile_index_path(@profile.id)%>
+</div>
+
 <%= "Hi #{@profile.name}!" %> <br />
 
 <% if @all_profiles.any? %>
