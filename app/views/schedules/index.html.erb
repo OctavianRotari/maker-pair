@@ -1,8 +1,16 @@
 <div class="btn btn-success">
 <%= link_to "Go to main page", profile_index_path(@profile.id)%>
 </div>
+<br>
+<br>
+<style>
+.col-lg-12 {
+  padding-left: 20px;
+  background-color: white;
+}
+</style>
 
-<%= "Hi #{@profile.name}!" %> <br />
+<h4><%= "Hi #{@profile.name}!" %></h4> <br>
 
 <% if @all_profiles.any? %>
          <% @all_profiles.each do |current_profile| %>
