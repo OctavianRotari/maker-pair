@@ -62,13 +62,14 @@
 </div>
 <br>
 <h3 class="reviews">Reviews for <%= @profile.name %></h3>
-
+<div class="well well-md">
 <% if @profile.reviews.any? %>
-  <ul>
+  <ul class="custom-bullet">
     <% @profile.reviews.each do |review| %>
       <li>
         <%= review.thoughts %>, <strong><%= review.rating %></strong>/5
       </li>
+      <br>
     <% end %>
   </ul>
 <% else %>
