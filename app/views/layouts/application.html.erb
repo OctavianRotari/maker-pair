@@ -19,8 +19,6 @@
     <br>
   <% if user_signed_in? %>
     <%= link_to "Sign out of maker-pair", destroy_user_session_path, method: :delete %> <br>
-    <br>
-    <button type="submit" class = "btn btn-warning btn-md"><a href="/profile/new" >Add your profile</a></button><br><br>
   <% else %>
     <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
   <% end %>

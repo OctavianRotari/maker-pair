@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
     # before_create :stringify_avail
 
   def index
-   @current_user = current_user if current_user != nil
+   @current_user = current_user.id if current_user != nil
    @profiles = Profile.all
    @mentee = []
    @profiles.each{ |profile| @mentee.push(profile) if profile.status == 'Mentee' }
