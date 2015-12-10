@@ -40,13 +40,14 @@
                                 <th><span>Languages</span></th>
                                 <th><span>Location</span></th>
                                 <th><span>GitHub Account</span></th>
+                                <th><span>Payment</span></th>
                                 <th><span></span></th>
                                 <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody >
                               <% if @result.any? %>
-                              <% @result.each do |mentor| %>
+                              <% @result.uniq.each do |mentor| %>
                                 <tr>
                                     <td>
                                         <img src="<%=mentor.image%>">
@@ -71,8 +72,24 @@
                                     <td>
                                         <a href="<%=mentor.github%>"><%="#{mentor.name}'s GitHub Profile"%></a>
                                     </td>
+
                                     <td>
-                                      <input type="checkbox">
+                                      <span>
+                                        <form action="" method="POST">
+                                              <script
+                                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                                                data-amount="2000"
+                                                data-name="Payment Site"
+                                                data-description="2 hours (£20.00)"
+                                                data-image="/128x128.png"
+                                                data-locale="auto"
+                                                data-button="Pay £20"
+                                                data-currency="GBP"
+                                                data-name="MakerPair">
+                                              </script>
+                                            </form>
+                                      </span>
                                     </td>
                                     <td style="width: 20%;">
                                         <a href="#" class="table-link">
