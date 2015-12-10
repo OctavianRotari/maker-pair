@@ -1,3 +1,4 @@
+
 <head>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
@@ -18,10 +19,10 @@
   </div>
 
 <div class="smart-green">
-  <h1>Register for Maker-Pair
+  <h1>Edit your current profile
     <span>Please fill all fields below: </span>
   </h1>
-      <%= simple_form_for(@profile, {url: "/profile"}) do |f| %>
+      <%= simple_form_for(@profile) do |f| %>
          <%= f.label :status %>
          <%= f.select(:status, ['Mentee', 'Mentor'], {}, { :class => 'form_class' }) %> <br />
          <%= f.label :name %>
