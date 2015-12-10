@@ -47,7 +47,7 @@
                             </thead>
                             <tbody >
                               <% if @result.any? %>
-                              <% @result.each do |mentor| %>
+                              <% @result.uniq.each do |mentor| %>
                                 <tr>
                                     <td>
                                         <img src="<%=mentor.image%>">
