@@ -1,61 +1,51 @@
 class ProfileController < ApplicationController
-    before_action :authenticate_user!, :except => [:index]
-
-    # before_create :stringify_avail
+  before_action :authenticate_user!, :except => [:index]
+  # before_create :stringify_avail
 
   def index
-   @current_user = current_user.id if current_user != nil
-   @profiles = Profile.all
-   @mentee = []
-   @profiles.each{ |profile| @mentee.push(profile) if profile.status == 'Mentee' }
-   @mentor = []
-   @profiles.each{ |profile| @mentor.push(profile) if profile.status == 'Mentor' }
+    @current_user = current_user.id if current_user != nil
+    @profiles = Profile.all
+    @mentee = []
+    @profiles.each{ |profile| @mentee.push(profile) if profile.status == 'Mentee' }
+    @mentor = []
+    @profiles.each{ |profile| @mentor.push(profile) if profile.status == 'Mentor' }
   end
 
+  def profile_params
+    params.require(:profile).permit(:status, :name, :surname, :language, :expertise, :occupation, :location, :availability => [])
+  end
 
+  def show
+    @profile = Profile.find(params[:id])
+  end
 
+  def edit
+    @profile = Profile.find(params[:id])
+  end
 
+  def update
+    @profile = Profile.find(params[:id])
+    if @profile.user_id == current_user.id
+      @profile.update(profile_params)
+      flash[:notice] = 'Profile updated successfully'
+    else
+      flash[:notice] = 'You have no permission to update this profile'
+    end
 
- def profile_params
-   params.require(:profile).permit(:status, :name, :surname, :language, :expertise, :occupation, :location, :availability => [])
- end
+    redirect_to '/profile'
+  end
 
- def show
-   @profile = Profile.find(params[:id])
- end
+  def destroy
+    @profile = Profile.find(params[:id])
+    if @profile.user_id == current_user.id
+      @profile.destroy
+      flash[:notice] = 'Profile deleted successfully'
+    else
+      flash[:notice] = 'You have no permission to delete this profile'
+    end
 
- def edit
-   @profile = Profile.find(params[:id])
-
- end
-
- def update
-   @profile = Profile.find(params[:id])
-
-
-   if @profile.user_id == current_user.id
-     @profile.update(profile_params)
-     flash[:notice] = 'Profile updated successfully'
-   else
-     flash[:notice] = 'You have no permission to update this profile'
-   end
-
-   redirect_to '/profile'
- end
-
- def destroy
-   @profile = Profile.find(params[:id])
-   if @profile.user_id == current_user.id
-     @profile.destroy
-     flash[:notice] = 'Profile deleted successfully'
-   else
-     flash[:notice] = 'You have no permission to delete this profile'
-   end
-
-
-   redirect_to '/profile'
- end
-
+    redirect_to '/profile'
+  end
 
   def new
     @profile = Profile.new
